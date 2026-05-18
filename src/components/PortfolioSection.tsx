@@ -1,8 +1,11 @@
 "use client";
 
 import Image from "next/image";
+import { motion } from "framer-motion";
+import { useI18n } from "@/lib/i18n";
 import { useEffect, useRef, useState } from "react";
 import type { TouchEvent } from "react";
+import "./PortfolioSection.css";
 
 type PortfolioCase = {
   id: string;
@@ -17,56 +20,10 @@ type PortfolioCase = {
   scope: string[];
 };
 
-const portfolioCases: PortfolioCase[] = [
-  {
-    id: "amore-sushi",
-    number: "01",
-    category: "online store",
-    title: "Amore Sushi",
-    subtitle: "Сайт доставки еды / amoresushi.com",
-    description: "Онлайн-витрина для доставки суши: каталог, акцент на продукт, мобильная структура и быстрый переход к заказу.",
-    url: "https://amoresushi.com",
-    image: "/portfolio/amore-sushi-cover.jpg",
-    tags: ["web design", "catalog", "delivery"],
-    scope: ["структура каталога", "адаптивный интерфейс", "карточки товаров", "путь к заказу"],
-  },
-  {
-    id: "kasha-brow",
-    number: "02",
-    category: "landing page",
-    title: "Kasha Brow Studio",
-    subtitle: "Лендинг beauty-студии / kashabrowstudio.ru",
-    description: "Лаконичная страница для студии: первый экран, услуги, портфолио, доверие и простая запись через контактные кнопки.",
-    url: "https://kashabrowstudio.ru",
-    image: "/portfolio/kasha-brow-studio.jpg",
-    tags: ["landing", "beauty", "booking"],
-    scope: ["hero section", "блок услуг", "портфолио работ", "контактный блок"],
-  },
-  {
-    id: "food-photo",
-    number: "03",
-    category: "food photo",
-    title: "Amore Sushi Photo",
-    subtitle: "Фуд-съёмка для меню и рекламы",
-    description: "Съёмка блюд для сайта, социальных сетей и рекламных постов: чистый свет, крупные планы и кадры под продажи.",
-    image: "/portfolio/amore-food.jpg",
-    tags: ["photo", "content", "ads"],
-    scope: ["фото блюд", "контент для меню", "кадры для постов", "визуалы для рекламы"],
-  },
-  {
-    id: "digital-design",
-    number: "04",
-    category: "digital design",
-    title: "Design digital",
-    subtitle: "Web, app, meniuri și cataloage",
-    description: "Разработка визуальных материалов для digital-среды: дизайн сайтов и приложений, меню для ресторанов, каталоги, презентации и рекламные макеты.",
-    image: "/portfolio/amore-food.jpg",
-    tags: ["web design", "app design", "menus", "catalogs"],
-    scope: ["дизайн сайтов", "дизайн приложений", "меню для ресторанов", "каталоги и презентации"],
-  },
-];
-
 export default function PortfolioSection() {
+  const { t, tRaw } = useI18n();
+  const portfolioCases = tRaw("portfolio.cases") as PortfolioCase[];
+
   const [activeIndex, setActiveIndex] = useState(0);
   const touchStartX = useRef<number | null>(null);
   const activeCase = portfolioCases[activeIndex] ?? portfolioCases[0];
@@ -97,20 +54,40 @@ export default function PortfolioSection() {
     <section className="portfolioSection" id="portfolio">
       <div className="portfolioContainer">
         <div className="portfolioHeader">
-          <div>
-            <h2>Portfolio</h2>
-          </div>
-          <p className="portfolioIntro">
-            Кейсы Coderatti Studio: сайты, лендинги и визуальный контент для локального бизнеса. Без лишнего шума — только задача, решение и результат.
-          </p>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <h2>{t("portfolio.title")}</h2>
+          </motion.div>
+          <motion.p
+            className="portfolioIntro"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+          >
+            {t("portfolio.intro")}
+          </motion.p>
         </div>
 
         <div className="portfolioTabs">
           {portfolioCases.map((item, index) => (
-            <button key={item.id} type="button" onClick={() => setActiveIndex(index)} className={activeIndex === index ? "active" : ""}>
+            <motion.button
+              key={item.id}
+              type="button"
+              onClick={() => setActiveIndex(index)}
+              className={activeIndex === index ? "active" : ""}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.5, delay: 0.05 + index * 0.06, ease: [0.22, 1, 0.36, 1] }}
+            >
               <span>{item.number}</span>
               <span>{item.category}</span>
-            </button>
+            </motion.button>
           ))}
         </div>
 
@@ -119,7 +96,7 @@ export default function PortfolioSection() {
             <div className="portfolioTrack" style={{ transform: `translateX(calc(-${activeIndex * 100}% - ${activeIndex * 20}px))` }}>
               {portfolioCases.map((item, index) => (
                 <article key={item.id} className={activeIndex === index ? "portfolioSlide active" : "portfolioSlide"}>
-                  <button type="button" onClick={() => setActiveIndex(index)} className="portfolioCard">
+                  <div onClick={() => setActiveIndex(index)} className="portfolioCard">
                     <div className="portfolioCardInfo">
                       <div>
                         <p className="portfolioNumber">{item.number}</p>
@@ -138,13 +115,19 @@ export default function PortfolioSection() {
                       </div>
                     </div>
                     <ProjectVisual item={item} active={activeIndex === index} />
-                  </button>
+                  </div>
                 </article>
               ))}
             </div>
           </div>
 
-          <aside className="portfolioAside">
+          <motion.aside
+            className="portfolioAside"
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+          >
             <div>
               <div className="portfolioAsideTop">
                 <span>{activeCase.number} / {portfolioCases.length.toString().padStart(2, "0")}</span>
@@ -153,7 +136,7 @@ export default function PortfolioSection() {
                   <button type="button" onClick={next} aria-label="Next case">→</button>
                 </div>
               </div>
-              <p className="portfolioAsideLabel">case description</p>
+              <p className="portfolioAsideLabel">{t("portfolio.caseDescription")}</p>
               <p className="portfolioDescription">{activeCase.description}</p>
               <div className="portfolioTags">
                 {activeCase.tags.map((tag) => <span key={tag}>{tag}</span>)}
@@ -169,11 +152,11 @@ export default function PortfolioSection() {
               </div>
             </div>
             {activeCase.url ? (
-              <a className="portfolioProjectLink" href={activeCase.url} target="_blank" rel="noopener noreferrer">view project</a>
+              <a className="portfolioProjectLink" href={activeCase.url} target="_blank" rel="noopener noreferrer">{t("portfolio.viewProject")}</a>
             ) : (
-              <a className="portfolioProjectLink" href="mailto:hello@coderatti.studio">request similar shoot</a>
+              <a className="portfolioProjectLink" href="mailto:hello@coderatti.studio">{t("portfolio.requestShoot")}</a>
             )}
-          </aside>
+          </motion.aside>
         </div>
       </div>
     </section>
@@ -181,19 +164,20 @@ export default function PortfolioSection() {
 }
 
 function ProjectVisual({ item, active }: { item: PortfolioCase; active: boolean }) {
+  const { t } = useI18n();
   return (
     <div className="portfolioVisual">
       <Image src={item.image} alt={item.title} fill sizes="(min-width: 1024px) 58vw, 94vw" className={active ? "active" : ""} />
       <div className="portfolioVisualOverlay" />
       <div className="portfolioVisualCaption">
         <div>
-          <p>preview</p>
+          <p>{t("portfolio.preview")}</p>
           <p>{item.category}</p>
         </div>
         {item.url ? (
-          <a href={item.url} target="_blank" rel="noreferrer" onClick={(event) => event.stopPropagation()}>open</a>
+          <a href={item.url} target="_blank" rel="noreferrer" onClick={(event) => event.stopPropagation()}>{t("portfolio.open")}</a>
         ) : (
-          <span>view</span>
+          <span>{t("portfolio.view")}</span>
         )}
       </div>
     </div>

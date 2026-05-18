@@ -1,35 +1,20 @@
-const priceItems = [
-  {
-    title: "Landing",
-    description:
-      "Landing-ul este un mini-site de o singură pagină care conține toate informațiile importante despre dumneavoastră sau despre afacerea dumneavoastră: linkuri, rețele sociale, portofoliu, servicii, meniu, date de contact, recenzii, formular de înregistrare și multe altele.",
-    audience: ["Specialiștilor în frumusețe", "Fotografilor", "Bloggerilor", "Oricăror specialiști și companii pentru care este important să se prezinte într-un mod atractiv pe internet"],
-    price: "150€",
-  },
-  {
-    title: "Magazin online",
-    description:
-      "Magazin online este un site web unde oamenii pot vizualiza produsele, afla prețurile și plasa o comandă prin internet.",
-    audience: ["Restaurante și cafenele", "Magazine de îmbrăcăminte / electronice", "Produse artizanale", "Livrare de mâncare", "Orice afacere care se ocupă cu vânzarea online de produse"],
-    price: "De la 300€",
-  },
-  {
-    title: "Design digital",
-    description:
-      "Designul digital înseamnă crearea de elemente vizuale pentru internet și rețele sociale.",
-    audience: ["Meniuri pentru restaurante și cafenele", "Proiectare de site-uri web", "Catalog de produse/servicii", "Proiectare de postări publicitare"],
-    price: "De la 100€",
-  },
-  {
-    title: "Fotografierea obiectelor",
-    description:
-      "Fotografia de produs este o sesiune foto profesională a produselor destinată publicității, meniurilor, site-urilor web, rețelelor sociale și platformelor de vânzare online. Aceasta ajută la prezentarea produsului într-un mod atractiv și la atragerea atenției clienților.",
-    audience: ["Restaurante și cafenele", "Magazine de îmbrăcăminte / electrocasnice", "Produse artizanale"],
-    price: "15€ / ora",
-  },
-];
+"use client";
+
+import { motion } from "framer-motion";
+import { useI18n } from "@/lib/i18n";
+import "./PriceListSection.css";
+
+type PriceItem = {
+  title: string;
+  description: string;
+  audience: string[];
+  price: string;
+};
 
 export default function PriceListSection() {
+  const { t, tRaw } = useI18n();
+  const priceItems = tRaw("prices.items") as PriceItem[];
+
   return (
     <section className="priceSection" id="prices">
       <div className="priceGlow priceGlowGreen" />
@@ -38,17 +23,32 @@ export default function PriceListSection() {
       <div className="priceDecor priceDecorRight" />
 
       <div className="priceContainer">
-        <h2>Lista de prețuri</h2>
+        <motion.h2
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+        >
+          {t("prices.title")}
+        </motion.h2>
 
         <div className="priceGrid">
-          {priceItems.map((item) => (
-            <article className="priceCard" key={item.title}>
+          {priceItems.map((item, index) => (
+            <motion.article
+              key={item.title}
+              className="priceCard"
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.6, delay: 0.1 + index * 0.12, ease: [0.22, 1, 0.36, 1] }}
+              whileHover={{ y: -8, transition: { duration: 0.3 } }}
+            >
               <div>
                 <h3>{item.title}</h3>
                 <p>{item.description}</p>
 
                 <div className="priceAudience">
-                  <p>Cui se adresează:</p>
+                  <p>{t("prices.targetAudience")}</p>
                   <ul>
                     {item.audience.map((audienceItem) => (
                       <li key={audienceItem}>{audienceItem}</li>
@@ -58,10 +58,12 @@ export default function PriceListSection() {
               </div>
 
               <div className="priceCardBottom">
-                <a href="mailto:hello@coderatti.studio">Contact</a>
-                <span>{item.price}</span>
+                <a href="mailto:hello@coderatti.studio">{t("prices.contact")}</a>
+                <motion.span whileHover={{ scale: 1.05 }} transition={{ duration: 0.2 }}>
+                  {item.price}
+                </motion.span>
               </div>
-            </article>
+            </motion.article>
           ))}
         </div>
       </div>

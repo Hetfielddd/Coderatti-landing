@@ -1,0 +1,116 @@
+{
+  "hero": {
+    "badge": "Web & Photo Studio",
+    "title": "Coderatti",
+    "typing": "Studio",
+    "subtitle": "Create your online showcase",
+    "cta": "Write us",
+    "nav": {
+      "portfolio": "Portfolio",
+      "services": "Services",
+      "contacts": "Contacts"
+    }
+  },
+  "portfolio": {
+    "title": "Portfolio",
+    "intro": "Coderatti Studio cases: websites, landing pages and visual content for local businesses. No unnecessary noise — just the problem, solution and result.",
+    "caseDescription": "case description",
+    "viewProject": "view project",
+    "requestShoot": "request similar shoot",
+    "preview": "preview",
+    "open": "open",
+    "view": "view",
+    "cases": [
+      {
+        "id": "amore-sushi",
+        "number": "01",
+        "category": "online store",
+        "title": "Amore Sushi",
+        "subtitle": "Sushi delivery website / amoresushi.com",
+        "description": "Online showcase for sushi delivery: catalog, product focus, mobile structure and quick transition to order.",
+        "url": "https://amoresushi.com",
+        "image": "/portfolio/amore-sushi-cover.jpg",
+        "tags": ["web design", "catalog", "delivery"],
+        "scope": ["catalog structure", "adaptive interface", "product cards", "path to order"]
+      },
+      {
+        "id": "kasha-brow",
+        "number": "02",
+        "category": "landing page",
+        "title": "Kasha Brow Studio",
+        "subtitle": "Beauty studio landing / kashabrowstudio.ru",
+        "description": "Concise page for a studio: hero section, services, portfolio, trust and simple booking via contact buttons.",
+        "url": "https://kashabrowstudio.ru",
+        "image": "/portfolio/kasha-brow-studio.jpg",
+        "tags": ["landing", "beauty", "booking"],
+        "scope": ["hero section", "services block", "portfolio of works", "contact block"]
+      },
+      {
+        "id": "food-photo",
+        "number": "03",
+        "category": "food photo",
+        "title": "Amore Sushi Photo",
+        "subtitle": "Food photography for menu and ads",
+        "description": "Shooting dishes for website, social media and advertising posts: clean light, close-ups and sales-oriented frames.",
+        "image": "/portfolio/amore-food.jpg",
+        "tags": ["photo", "content", "ads"],
+        "scope": ["dish photos", "menu content", "frames for posts", "visuals for advertising"]
+      },
+      {
+        "id": "digital-design",
+        "number": "04",
+        "category": "digital design",
+        "title": "Digital Design",
+        "subtitle": "Web, app, menus and catalogs",
+        "description": "Development of visual materials for the digital environment: website and app design, restaurant menus, catalogs, presentations and advertising layouts.",
+        "image": "/portfolio/amore-food.jpg",
+        "tags": ["web design", "app design", "menus", "catalogs"],
+        "scope": ["website design", "app design", "restaurant menus", "catalogs and presentations"]
+      }
+    ]
+  },
+  "prices": {
+    "title": "Price list",
+    "contact": "Contact",
+    "targetAudience": "Target audience:",
+    "items": [
+      {
+        "title": "Landing",
+        "description": "A landing page is a single-page mini-site that contains all the important information about you or your business: links, social media, portfolio, services, menu, contact details, reviews, registration form and much more.",
+        "audience": ["Beauty specialists", "Photographers", "Bloggers", "Any specialists and companies for whom it is important to present themselves attractively online"],
+        "price": "150€"
+      },
+      {
+        "title": "Online shop",
+        "description": "An online shop is a website where people can view products, find out prices and place an order online.",
+        "audience": ["Restaurants and cafes", "Clothing / electronics stores", "Handmade products", "Food delivery", "Any business engaged in online sales of products"],
+        "price": "From 300€"
+      },
+      {
+        "title": "Digital design",
+        "description": "Digital design means creating visual elements for the internet and social media.",
+        "audience": ["Menus for restaurants and cafes", "Website design", "Product/service catalog", "Advertising post design"],
+        "price": "From 100€"
+      },
+      {
+        "title": "Product photography",
+        "description": "Product photography is a professional photo session of products for advertising, menus, websites, social media and online sales platforms. It helps present the product in an attractive way and draw customers' attention.",
+        "audience": ["Restaurants and cafes", "Clothing / home appliance stores", "Handmade products"],
+        "price": "15€ / hour"
+      }
+    ]
+  },
+  "contacts": {
+    "title": "Contacts",
+    "subtitle": "We will answer all your questions and create the ideal website for you",
+    "socials": "SOCIAL NETWORKS",
+    "telegram": "TELEGRAM",
+    "instagram": "INSTAGRAM",
+    "sendRequest": "SEND A REQUEST",
+    "name": "Name",
+    "address": "Email address or phone number",
+    "message": "Message",
+    "optional": "*Optional",
+    "submit": "Contact"
+  }
+}
