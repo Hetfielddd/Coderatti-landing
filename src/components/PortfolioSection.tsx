@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { useI18n } from "@/lib/i18n";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import type { TouchEvent } from "react";
 import "./PortfolioSection.css";
 
@@ -30,11 +30,6 @@ export default function PortfolioSection() {
 
   const prev = () => setActiveIndex((current) => (current === 0 ? portfolioCases.length - 1 : current - 1));
   const next = () => setActiveIndex((current) => (current === portfolioCases.length - 1 ? 0 : current + 1));
-
-  useEffect(() => {
-    const interval = window.setInterval(next, 15000);
-    return () => window.clearInterval(interval);
-  }, []);
 
   const handleTouchStart = (event: TouchEvent<HTMLDivElement>) => {
     touchStartX.current = event.touches[0].clientX;

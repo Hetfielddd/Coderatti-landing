@@ -192,10 +192,9 @@
 
 .priceCardBottom a {
   display: flex;
-  width: 370px;
-  max-width: calc(100% - 150px);
+  flex: 1 1 auto;
+  min-width: 0;
   height: 34px;
-  flex: 0 1 370px;
   align-items: center;
   justify-content: center;
   margin-right: auto;
@@ -205,10 +204,15 @@
   font-family: "Bounded", Arial, Helvetica, sans-serif;
   font-size: 14px;
   font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 0 12px;
 }
 
 .priceCardBottom span {
   flex: 0 0 auto;
+  min-width: 0;
   margin-left: auto;
   color: #bbff00;
   font-family: "Bounded", Arial, Helvetica, sans-serif;
@@ -262,6 +266,24 @@
 
   .priceDecor {
     display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .priceCardBottom {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .priceCardBottom a {
+    width: 100%;
+    margin-right: 0;
+  }
+
+  .priceCardBottom span {
+    margin-left: 0;
+    text-align: center;
   }
 }
 
