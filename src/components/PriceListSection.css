@@ -271,7 +271,7 @@
 
 @media (max-width: 640px) {
   .priceCardBottom {
-    flex-direction: column;
+    flex-direction: column-reverse;
     align-items: stretch;
     gap: 12px;
   }
@@ -283,7 +283,8 @@
 
   .priceCardBottom span {
     margin-left: 0;
-    text-align: center;
+    text-align: right;
+    align-self: flex-end;
   }
 }
 
