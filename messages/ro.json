@@ -112,5 +112,25 @@
     "message": "Mesaj",
     "optional": "*La alegere",
     "submit": "Contact"
+  },
+  "modal": {
+    "title": "Scrie-ne",
+    "name": "Nume",
+    "contact": "Email sau telefon",
+    "message": "Mesaj",
+    "privacy": "Sunt de acord cu",
+    "privacyLink": "Politica de confidențialitate",
+    "submit": "Trimite"
+  },
+  "privacy": {
+    "title": "Politica de confidențialitate",
+    "content": [
+      "Respectăm confidențialitatea dumneavoastră și ne angajăm să protejăm datele personale.",
+      "Ce date colectăm: numele, adresa de email sau numărul de telefon și textul mesajului pe care îl furnizați prin formularul de contact.",
+      "Scop: folosim aceste date exclusiv pentru a răspunde solicitării dumneavoastră și a discuta o eventuală colaborare.",
+      "Stocarea datelor: mesajele dumneavoastră sunt păstrate în căsuța noastră de email și nu sunt transmise terților.",
+      "Perioada de păstrare: păstrăm corespondența timp de maximum 12 luni sau până la solicitarea ștergerii.",
+      "Drepturile dumneavoastră: puteți solicita accesul, rectificarea sau ștergerea datelor în orice moment, contactându-ne la hello@coderatti.studio."
+    ]
   }
 }

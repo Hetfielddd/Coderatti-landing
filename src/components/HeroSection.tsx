@@ -11,7 +11,7 @@ const fadeUp = (delay = 0) => ({
   transition: { duration: 0.6, delay, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] },
 });
 
-export default function HeroSection() {
+export default function HeroSection({ onOpenModal }: { onOpenModal: () => void }) {
   const { t } = useI18n();
 
   return (
@@ -44,9 +44,9 @@ export default function HeroSection() {
 
         <motion.div className="ctaRow" {...fadeUp(0.45)}>
           <span className="arrow" />
-          <a className="cta" href="mailto:hello@coderatti.studio">
+          <button type="button" className="cta" onClick={onOpenModal}>
             {t("hero.cta")}
-          </a>
+          </button>
         </motion.div>
 
         <motion.nav className="heroNav" aria-label="Hero navigation" {...fadeUp(0.55)}>

@@ -112,5 +112,25 @@
     "message": "Message",
     "optional": "*Optional",
     "submit": "Contact"
+  },
+  "modal": {
+    "title": "Write us",
+    "name": "Name",
+    "contact": "Email or phone",
+    "message": "Message",
+    "privacy": "I agree to the",
+    "privacyLink": "Privacy Policy",
+    "submit": "Send"
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "content": [
+      "We respect your privacy and are committed to protecting your personal data.",
+      "What data we collect: name, email address or phone number, and message text that you provide through the contact form.",
+      "Purpose: we use this data solely to respond to your inquiry and discuss potential cooperation.",
+      "Data storage: your messages are stored in our email inbox and are not transferred to third parties.",
+      "Retention period: we retain correspondence for up to 12 months or until you request deletion.",
+      "Your rights: you can request access to, correction, or deletion of your data at any time by contacting us at hello@coderatti.studio."
+    ]
   }
 }

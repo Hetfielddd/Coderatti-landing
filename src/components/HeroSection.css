@@ -275,12 +275,15 @@
   height: 100%;
   align-items: center;
   justify-content: center;
+  border: none;
   border-radius: 8px;
   background: #ffffff;
   color: #101010;
+  font-family: "Bounded", Arial, Helvetica, sans-serif;
   font-size: clamp(17px, 1.25vw, 25px);
   font-weight: 700;
   letter-spacing: -0.04em;
+  cursor: pointer;
 }
 
 .heroNav {
