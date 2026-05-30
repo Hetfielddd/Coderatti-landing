@@ -20,7 +20,7 @@ function getValue(obj: Record<string, unknown>, path: string): unknown {
 type I18nContextType = {
   locale: Locale;
   setLocale: (locale: Locale) => void;
-  t: (key: string) => string;
+  t: (key: string, vars?: Record<string, string | number>) => string;
   tRaw: (key: string) => unknown;
 };
 
@@ -45,9 +45,15 @@ export function I18nProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const t = useCallback(
-    (key: string) => {
-      const value = getValue(messages[locale], key);
-      return typeof value === "string" ? value : key;
+    (key: string, vars?: Record<string, string | number>) => {
+      let value = getValue(messages[locale], key);
+      if (typeof value !== "string") return key;
+      if (vars) {
+        Object.entries(vars).forEach(([k, v]) => {
+          value = (value as string).replace(new RegExp(`\\{${k}\\}`, "g"), String(v));
+        });
+      }
+      return value;
     },
     [locale]
   );

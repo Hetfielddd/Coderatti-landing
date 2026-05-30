@@ -1,6 +1,5 @@
 .priceSection {
   position: relative;
-  overflow: hidden;
   background: #101010;
   color: #ffffff;
   padding: clamp(72px, 8vw, 126px) 20px clamp(64px, 7vw, 96px);
@@ -80,7 +79,7 @@
 
 .priceContainer {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   max-width: calc((88px * 12) + (20px * 11));
   margin: 0 auto;
 }
@@ -98,43 +97,48 @@
 
 .priceGrid {
   position: relative;
-  display: grid;
-  grid-template-columns: repeat(12, 88px);
+  display: flex;
   gap: 20px;
+  align-items: flex-start;
   max-width: calc((88px * 12) + (20px * 11));
   margin: -30px auto 0;
-  justify-content: center;
+}
+
+.priceColumn {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .priceCard {
-  grid-column: span 6;
+  position: relative;
+  z-index: 1;
   display: flex;
-  height: auto;
-  min-height: 0;
   flex-direction: column;
   justify-content: space-between;
   border: 0.35px solid rgba(255, 255, 255, 0.28);
   outline: 0.35px solid rgba(220, 220, 220, 0.12);
-  outline-offset: -1px;
-  border-radius: 18px;
+  outline-offset: -0px;
+  border-radius: 30px;
   padding: 20px 20px 25px;
-  background: rgba(255, 255, 255, 0.04);
+  background: rgba(255, 255, 255, 0.03);
   box-shadow:
     inset 9px 0 18px rgba(0, 0, 0, 0.2),
     inset 0 9px 18px rgba(0, 0, 0, 0.18),
-    inset -1px 0 12px rgba(255, 255, 255, 0.13),
-    inset 0 -1px 14px rgba(255, 255, 255, 0.14),
+    inset -1px 0 12px rgba(255, 255, 255, 0.06),
+    inset 0 -1px 14px rgba(255, 255, 255, 0.04),
     inset -10px -10px 20px rgba(255, 255, 255, 0.04),
     0 14px 40px rgba(0, 0, 0, 0.26),
-    0 0 0 0.5px rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(1px) saturate(0.1);
-  -webkit-backdrop-filter: blur(1px) saturate(0.1);
+    0 0 0 0.5px rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(8px) brightness(1.1) contrast(0.95);
+  -webkit-backdrop-filter: blur(8px) brightness(1.1) contrast(0.95);
 }
 
 .priceCard h3 {
   margin: 0 0 10px;
   color: #bbff00;
-  font-family: "Bounded", Arial, Helvetica, sans-serif;
+  font-family: "Inter", Arial, Helvetica, sans-serif;
   font-size: 22px;
   font-weight: 900;
   line-height: 1;
@@ -144,7 +148,7 @@
 .priceCard > div:first-child > p {
   margin: 0 0 20px;
   color: #ffffff;
-  font-family: "Bounded", Arial, Helvetica, sans-serif;
+  font-family: "Inter", Arial, Helvetica, sans-serif;
   font-size: 16px;
   font-weight: 100;
   line-height: 1.15;
@@ -157,7 +161,7 @@
 .priceAudience p {
   margin: 0 0 15px;
   color: #ffffff;
-  font-family: "Bounded", Arial, Helvetica, sans-serif;
+  font-family: "Inter", Arial, Helvetica, sans-serif;
   font-size: 18px;
   font-weight: 100;
   line-height: 1.15;
@@ -171,7 +175,7 @@
 
 .priceAudience li {
   color: #ffffff;
-  font-family: "Bounded", Arial, Helvetica, sans-serif;
+  font-family: "Inter", Arial, Helvetica, sans-serif;
   font-size: 16px;
   font-weight: 100;
   line-height: 1.15;
@@ -201,7 +205,7 @@
   border-radius: 7px;
   background: #ffffff;
   color: #101010;
-  font-family: "Bounded", Arial, Helvetica, sans-serif;
+  font-family: "Inter", Arial, Helvetica, sans-serif;
   font-size: 14px;
   font-weight: 700;
   white-space: nowrap;
@@ -215,7 +219,7 @@
   min-width: 0;
   margin-left: auto;
   color: #bbff00;
-  font-family: "Bounded", Arial, Helvetica, sans-serif;
+  font-family: "Inter", Arial, Helvetica, sans-serif;
   font-size: 22px;
   font-weight: 900;
   line-height: 1;
@@ -226,10 +230,6 @@
   .priceContainer,
   .priceGrid {
     max-width: none;
-  }
-
-  .priceGrid {
-    grid-template-columns: repeat(12, minmax(0, 1fr));
   }
 }
 
@@ -255,13 +255,9 @@
   }
 
   .priceGrid {
-    grid-template-columns: 1fr;
+    flex-direction: column;
     max-width: 520px;
     margin-top: 0;
-  }
-
-  .priceCard {
-    grid-column: auto;
   }
 
   .priceDecor {

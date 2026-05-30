@@ -1,17 +1,11 @@
-@font-face {
-  font-family: "Bounded";
-  src: url("/fonts/Bounded-Regular.ttf") format("truetype");
-  font-display: swap;
-  font-style: normal;
-  font-weight: 400;
-}
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
 @font-face {
   font-family: "Bezier Sans";
-  src: url("/fonts/Bezier Sans_ExtraBold.ttf") format("truetype");
+  src: url("/fonts/Bezier Sans_variable.ttf") format("truetype");
   font-display: swap;
   font-style: normal;
-  font-weight: 800;
+  font-weight: 100 900;
 }
 
 * {
@@ -27,12 +21,25 @@ body {
   margin: 0;
   background: #101010;
   color: #ffffff;
-  font-family: "Bounded", Arial, Helvetica, sans-serif;
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 a {
   color: inherit;
   text-decoration: none;
+}
+
+.container {
+  width: min(100% - 32px, 1530px);
+  margin: 0 auto;
+}
+
+@media (max-width: 480px) {
+  .container {
+    width: min(100% - 24px, 1530px);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

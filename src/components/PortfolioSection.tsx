@@ -14,6 +14,8 @@ type PortfolioCase = {
   title: string;
   subtitle: string;
   description: string;
+  caseDescription?: string;
+  scopeLabel?: string;
   url?: string;
   image: string;
   tags: string[];
@@ -131,13 +133,13 @@ export default function PortfolioSection() {
                   <button type="button" onClick={next} aria-label="Next case">→</button>
                 </div>
               </div>
-              <p className="portfolioAsideLabel">{t("portfolio.caseDescription")}</p>
+              <p className="portfolioAsideLabel">{activeCase.caseDescription || t("portfolio.caseDescription")}</p>
               <p className="portfolioDescription">{activeCase.description}</p>
               <div className="portfolioTags">
                 {activeCase.tags.map((tag) => <span key={tag}>{tag}</span>)}
               </div>
               <div className="portfolioScope">
-                <p>scope</p>
+                <p>{activeCase.scopeLabel || t("portfolio.scope")}</p>
                 {activeCase.scope.map((item) => (
                   <div key={item}>
                     <span />

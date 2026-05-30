@@ -76,7 +76,7 @@
   padding: 10px 12px;
   background: rgba(255, 255, 255, 0.04);
   color: #ffffff;
-  font-family: "Bounded", Arial, Helvetica, sans-serif;
+  font-family: "Inter", Arial, Helvetica, sans-serif;
   font-size: 14px;
   outline: none;
   transition: border-color 0.2s ease;
@@ -122,7 +122,7 @@
   border-radius: 8px;
   background: #ffffff;
   color: #101010;
-  font-family: "Bounded", Arial, Helvetica, sans-serif;
+  font-family: "Inter", Arial, Helvetica, sans-serif;
   font-size: 14px;
   font-weight: 700;
   letter-spacing: 0.04em;

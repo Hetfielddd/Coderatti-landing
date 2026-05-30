@@ -13,25 +13,26 @@
   },
   "portfolio": {
     "title": "Portofoliu",
-    "intro": "Cazuri Coderatti Studio: site-uri, landing-uri și conținut vizual pentru afaceri locale. Fără zgomot inutil — doar problema, soluția și rezultatul.",
-    "caseDescription": "descrierea cazului",
+    "intro": "Proiecte Coderatti Studio: site-uri și conținut vizual pentru afaceri.",
+    "caseDescription": "Descrierea proiectului",
     "viewProject": "vezi proiectul",
     "requestShoot": "solicită o ședință similară",
     "preview": "previzualizare",
     "open": "deschide",
     "view": "vezi",
+    "scope": "Scopuri",
     "cases": [
       {
         "id": "amore-sushi",
         "number": "01",
-        "category": "magazin online",
+        "category": "Magazin online",
         "title": "Amore Sushi",
-        "subtitle": "Site de livrare sushi / amoresushi.com",
-        "description": "Vitrină online pentru livrare de sushi: catalog, accent pe produs, structură mobilă și tranziție rapidă la comandă.",
+        "subtitle": "Sushi delivery website / amoresushi.com",
+        "description": "Aplicație online pentru comenzi Amore Sushi: clienții plasează comenzi rapid, cu livrare acasă sau la restaurant, iar personalul primește notificări automate pe telefon.",
         "url": "https://amoresushi.com",
         "image": "/portfolio/amore-sushi-cover.jpg",
-        "tags": ["web design", "catalog", "livrație"],
-        "scope": ["structura catalogului", "interfață adaptivă", "carduri de produse", "calea spre comandă"]
+        "tags": ["web design", "catalog", "livrare"],
+        "scope": ["Vitrină de produse", "Comenzi online", "Gestionare comenzi"]
       },
       {
         "id": "kasha-brow",
@@ -39,22 +40,22 @@
         "category": "landing page",
         "title": "Kasha Brow Studio",
         "subtitle": "Landing beauty-studio / kashabrowstudio.ru",
-        "description": "Pagină concisă pentru studio: primul ecran, servicii, portofoliu, încredere și programare simplă prin butoane de contact.",
+        "description": "Site pentru salon de înfrumusețare: servicii, portofoliu, prețuri și programări.",
         "url": "https://kashabrowstudio.ru",
         "image": "/portfolio/kasha-brow-studio.jpg",
-        "tags": ["landing", "beauty", "booking"],
-        "scope": ["hero section", "bloc de servicii", "portofoliu de lucrări", "bloc de contact"]
+        "tags": ["landing", "beauty", "portfolio"],
+        "scope": ["Portofoliu", "Prezentare servicii", "Listă de prețuri", "Date de contact"]
       },
       {
         "id": "food-photo",
         "number": "03",
-        "category": "fotografie culinară",
+        "category": "Fotografie comercială",
         "title": "Amore Sushi Photo",
         "subtitle": "Fotografiere preparate pentru meniu și publicitate",
-        "description": "Fotografierea preparatelor pentru site, rețele sociale și postări publicitare: lumină curată, prim-planuri și cadre pentru vânzări.",
+        "description": "Fotografii de preparate pentru site, social media și reclame: lumină studio, cadre detaliate.",
         "image": "/portfolio/amore-food.jpg",
-        "tags": ["foto", "conținut", "reclame"],
-        "scope": ["fotografii de preparate", "conținut pentru meniu", "cadre pentru postări", "vizuale pentru publicitate"]
+        "tags": ["FOTO", "CONȚINUT"],
+        "scope": ["Fotografii culinare", "Imagini pentru meniu", "Conținut social media", "Materiale promoționale"]
       },
       {
         "id": "digital-design",
@@ -62,10 +63,12 @@
         "category": "design digital",
         "title": "Design digital",
         "subtitle": "Web, app, meniuri și cataloage",
-        "description": "Dezvoltarea materialelor vizuale pentru mediul digital: design de site-uri și aplicații, meniuri pentru restaurante, cataloage, prezentări și layout-uri publicitare.",
+        "description": "Crearea partei vizuale pentru afaceri",
         "image": "/portfolio/amore-food.jpg",
-        "tags": ["web design", "app design", "meniuri", "cataloguri"],
-        "scope": ["design de site-uri", "design de aplicații", "meniuri pentru restaurante", "cataloguri și prezentări"]
+        "tags": ["web design", "meniuri", "vizual"],
+        "caseDescription": "Descrierea serviciului",
+        "scopeLabel": "Exemple",
+        "scope": ["Meniuri pentru localuri", "Web design", "Cataloguri de produse", "Postări promoționale", "Conținut pentru social media"]
       }
     ]
   },
@@ -132,5 +135,27 @@
       "Perioada de păstrare: păstrăm corespondența timp de maximum 12 luni sau până la solicitarea ștergerii.",
       "Drepturile dumneavoastră: puteți solicita accesul, rectificarea sau ștergerea datelor în orice moment, contactându-ne la hello@coderatti.studio."
     ]
+  },
+  "homepage": {
+    "getStarted": "OBȚINE UN SITE"
+  },
+  "pricing": {
+    "hosting": "Configurare hosting",
+    "pagesMoreThan5": "Mai mult de 5 pagini",
+    "layout": "Layout responsive",
+    "pagesUpTo5": "Până la 5 pagini",
+    "design": "Design",
+    "landing": "Landing",
+    "responsive": "Adaptare mobilă",
+    "menu": "Meniuri și cataloage",
+    "from": "De la {price}€",
+    "corporate": "Site business",
+    "store": "Magazin online",
+    "seo": "SEO de bază",
+    "contactForm": "Formular de contact",
+    "banners": "Bannere",
+    "database": "Logică catalog/API",
+    "core": "Funcții principale magazin",
+    "title": "Prețuri"
   }
 }

@@ -13,13 +13,14 @@
   },
   "portfolio": {
     "title": "Portfolio",
-    "intro": "Coderatti Studio cases: websites, landing pages and visual content for local businesses. No unnecessary noise — just the problem, solution and result.",
-    "caseDescription": "case description",
+    "intro": "Coderatti Studio projects: websites and visuals for businesses.",
+    "caseDescription": "Project description",
     "viewProject": "view project",
-    "requestShoot": "request similar shoot",
+    "requestShoot": "request similar visuals",
     "preview": "preview",
     "open": "open",
     "view": "view",
+    "scope": "Scope",
     "cases": [
       {
         "id": "amore-sushi",
@@ -27,11 +28,11 @@
         "category": "online store",
         "title": "Amore Sushi",
         "subtitle": "Sushi delivery website / amoresushi.com",
-        "description": "Online showcase for sushi delivery: catalog, product focus, mobile structure and quick transition to order.",
+        "description": "Order app for Amore Sushi: customers place orders fast, with home or restaurant delivery, while staff get instant phone notifications.",
         "url": "https://amoresushi.com",
         "image": "/portfolio/amore-sushi-cover.jpg",
         "tags": ["web design", "catalog", "delivery"],
-        "scope": ["catalog structure", "adaptive interface", "product cards", "path to order"]
+        "scope": ["Product showcase", "Online orders", "Order processing"]
       },
       {
         "id": "kasha-brow",
@@ -39,22 +40,22 @@
         "category": "landing page",
         "title": "Kasha Brow Studio",
         "subtitle": "Beauty studio landing / kashabrowstudio.ru",
-        "description": "Concise page for a studio: hero section, services, portfolio, trust and simple booking via contact buttons.",
+        "description": "Beauty studio website: services, portfolio, pricing and bookings.",
         "url": "https://kashabrowstudio.ru",
         "image": "/portfolio/kasha-brow-studio.jpg",
-        "tags": ["landing", "beauty", "booking"],
-        "scope": ["hero section", "services block", "portfolio of works", "contact block"]
+        "tags": ["landing", "beauty", "portfolio"],
+        "scope": ["Work portfolio", "Service display", "Pricing", "Contact info"]
       },
       {
         "id": "food-photo",
         "number": "03",
-        "category": "food photo",
+        "category": "commercial photo",
         "title": "Amore Sushi Photo",
         "subtitle": "Food photography for menu and ads",
-        "description": "Shooting dishes for website, social media and advertising posts: clean light, close-ups and sales-oriented frames.",
+        "description": "Food photography for websites, social media and ads: studio lighting, detailed shots.",
         "image": "/portfolio/amore-food.jpg",
-        "tags": ["photo", "content", "ads"],
-        "scope": ["dish photos", "menu content", "frames for posts", "visuals for advertising"]
+        "tags": ["photo", "content"],
+        "scope": ["Food shots", "Menu images", "Social content", "Ad creatives"]
       },
       {
         "id": "digital-design",
@@ -62,10 +63,12 @@
         "category": "digital design",
         "title": "Digital Design",
         "subtitle": "Web, app, menus and catalogs",
-        "description": "Development of visual materials for the digital environment: website and app design, restaurant menus, catalogs, presentations and advertising layouts.",
+        "description": "Creating visual part for businesses",
         "image": "/portfolio/amore-food.jpg",
-        "tags": ["web design", "app design", "menus", "catalogs"],
-        "scope": ["website design", "app design", "restaurant menus", "catalogs and presentations"]
+        "tags": ["web design", "menus", "visual"],
+        "caseDescription": "Service description",
+        "scopeLabel": "Examples",
+        "scope": ["Restaurant menus", "Web design", "Product catalogs", "Promotional posts", "Social content"]
       }
     ]
   },
@@ -132,5 +135,27 @@
       "Retention period: we retain correspondence for up to 12 months or until you request deletion.",
       "Your rights: you can request access to, correction, or deletion of your data at any time by contacting us at hello@coderatti.studio."
     ]
+  },
+  "homepage": {
+    "getStarted": "GET A WEBSITE"
+  },
+  "pricing": {
+    "hosting": "Hosting setup",
+    "pagesMoreThan5": "More than 5 pages",
+    "layout": "Responsive layout",
+    "pagesUpTo5": "Up to 5 pages",
+    "design": "Design",
+    "landing": "Landing",
+    "responsive": "Mobile adaptation",
+    "menu": "Menus & catalogs",
+    "from": "From {price}€",
+    "corporate": "Business website",
+    "store": "Online store",
+    "seo": "Basic SEO",
+    "contactForm": "Contact form",
+    "banners": "Banners",
+    "database": "Catalog/API logic",
+    "core": "Main store features",
+    "title": "Prices"
   }
 }
