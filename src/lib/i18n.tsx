@@ -33,6 +33,7 @@ export function I18nProvider({ children }: { children: ReactNode }) {
     const params = new URLSearchParams(window.location.search);
     const lang = params.get("lang") as Locale;
     if (lang && messages[lang]) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setLocaleState(lang);
     }
   }, []);
