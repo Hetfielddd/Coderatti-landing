@@ -141,10 +141,25 @@
 @media (max-width: 480px) {
   .modalBackdrop {
     padding: 16px;
-    align-items: flex-end;
+    align-items: center;
   }
 
   .modalContent {
     padding: 24px 18px 20px;
+  }
+
+  .modalField input,
+  .modalField textarea {
+    font-size: 16px;
+    padding: 12px 14px;
+  }
+
+  .modalSubmit {
+    height: 48px;
+    font-size: 16px;
+  }
+
+  .modalCheckbox {
+    font-size: 13px;
   }
 }

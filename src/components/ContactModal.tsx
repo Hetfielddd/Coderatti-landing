@@ -37,15 +37,31 @@ export default function ContactModal({
     mouseDownTarget.current = null;
   };
 
-  const handleSubmit = (event: FormEvent) => {
+  const handleSubmit = async (event: FormEvent) => {
     event.preventDefault();
     if (!formData.agreed) return;
-    const subject = encodeURIComponent(`Cerere nouă de la ${formData.name}`);
-    const body = encodeURIComponent(
-      `Nume: ${formData.name}\nContact: ${formData.contact}\n\nMesaj:\n${formData.message}`
-    );
-    window.location.href = `mailto:hello@coderatti.studio?subject=${subject}&body=${body}`;
-    onClose();
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: formData.name,
+          contact: formData.contact,
+          message: formData.message,
+        }),
+      });
+
+      if (response.ok) {
+        alert(t("contacts.success") || "Заявка отправлена! Мы свяжемся с вами.");
+        setFormData({ name: "", contact: "", message: "", agreed: false });
+        onClose();
+      } else {
+        alert(t("contacts.error") || "Ошибка при отправке. Попробуйте позже.");
+      }
+    } catch {
+      alert(t("contacts.error") || "Ошибка при отправке. Попробуйте позже.");
+    }
   };
 
   return (
@@ -98,7 +114,10 @@ export default function ContactModal({
               </div>
 
               <div className="modalField">
-                <label htmlFor="modal-message">{t("modal.message")}</label>
+                <label htmlFor="modal-message">
+                  {t("modal.message")}{" "}
+                  <span style={{ opacity: 0.55 }}>({t("contacts.optional")})</span>
+                </label>
                 <textarea
                   id="modal-message"
                   value={formData.message}

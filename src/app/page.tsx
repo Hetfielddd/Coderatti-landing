@@ -13,7 +13,7 @@ export default function Home() {
   return (
     <>
       <HeroSection onOpenModal={() => setIsModalOpen(true)} />
-      <PortfolioSection />
+      <PortfolioSection onOpenModal={() => setIsModalOpen(true)} />
       <PriceListSection />
       <ContactSection />
       <ContactModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />

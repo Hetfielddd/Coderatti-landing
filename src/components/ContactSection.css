@@ -51,7 +51,7 @@
 .contactLabel {
   margin: 0 0 16px;
   font-size: 18px;
-  font-weight: 400;
+  font-weight: 700;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: #101010;
@@ -145,11 +145,30 @@
   margin-bottom: 8px;
 }
 
-.contactOptional {
-  margin: 0 0 20px;
-  color: rgba(17, 17, 17, 0.4);
-  font-size: 11px;
-  font-weight: 300;
+.contactCheckbox {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 20px;
+  cursor: pointer;
+  font-size: 12px;
+  line-height: 1.5;
+  color: rgba(17, 17, 17, 0.7);
+}
+
+.contactCheckbox input {
+  width: 16px;
+  height: 16px;
+  margin-top: 2px;
+  flex-shrink: 0;
+  accent-color: #101010;
+  cursor: pointer;
+}
+
+.contactCheckbox a {
+  color: #101010;
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
 
 .contactSubmit {
@@ -191,16 +210,65 @@
   .contactContent {
     padding: 48px 24px;
     max-width: none;
-  }
-}
-
-@media (max-width: 640px) {
-  .contactHeader h2 {
-    font-size: clamp(32px, 10vw, 42px);
+    width: 100%;
+    margin: 0 auto;
+    box-sizing: border-box;
   }
 
   .contactField input,
   .contactField textarea {
     font-size: 16px;
+  }
+}
+
+@media (max-width: 640px) {
+  .contactContent {
+    padding: 40px 20px;
+  }
+
+  .contactHeader h2 {
+    font-size: clamp(28px, 9vw, 42px);
+  }
+
+  .contactLabel {
+    font-size: 16px;
+  }
+
+  .contactField input,
+  .contactField textarea {
+    padding: 14px 16px;
+  }
+
+  .contactCheckbox {
+    font-size: 13px;
+  }
+
+  .contactSubmit {
+    height: 52px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .contactContent {
+    padding: 32px 16px;
+  }
+
+  .contactHeader h2 {
+    font-size: clamp(26px, 8.5vw, 36px);
+  }
+
+  .contactSocialBtn {
+    height: 48px;
+    font-size: 15px;
+  }
+
+  .contactCheckbox input {
+    width: 18px;
+    height: 18px;
+  }
+
+  .contactCheckbox {
+    gap: 8px;
   }
 }

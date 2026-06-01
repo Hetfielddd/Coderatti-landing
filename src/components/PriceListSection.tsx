@@ -9,6 +9,7 @@ type PriceItem = {
   description: string;
   audience: string[];
   price: string;
+  audienceLabel?: string;
 };
 
 function PriceCard({ item, index }: { item: PriceItem; index: number }) {
@@ -27,7 +28,7 @@ function PriceCard({ item, index }: { item: PriceItem; index: number }) {
         <p>{item.description}</p>
 
         <div className="priceAudience">
-          <p>{t("prices.targetAudience")}</p>
+          <p>{item.audienceLabel || t("prices.targetAudience")}</p>
           <ul>
             {item.audience.map((audienceItem) => (
               <li key={audienceItem}>{audienceItem}</li>

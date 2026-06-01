@@ -6,6 +6,7 @@ import { useI18n } from "@/lib/i18n";
 import { useRef, useState } from "react";
 import type { TouchEvent } from "react";
 import "./PortfolioSection.css";
+import PortfolioDetailModal from "./PortfolioDetailModal";
 
 type PortfolioCase = {
   id: string;
@@ -20,15 +21,27 @@ type PortfolioCase = {
   image: string;
   tags: string[];
   scope: string[];
+  ctaLabel?: string;
 };
 
-export default function PortfolioSection() {
+export default function PortfolioSection({ onOpenModal }: { onOpenModal: () => void }) {
   const { t, tRaw } = useI18n();
   const portfolioCases = tRaw("portfolio.cases") as PortfolioCase[];
 
   const [activeIndex, setActiveIndex] = useState(0);
+  const [detailModalOpen, setDetailModalOpen] = useState(false);
+  const [detailCase, setDetailCase] = useState<PortfolioCase | null>(null);
   const touchStartX = useRef<number | null>(null);
   const activeCase = portfolioCases[activeIndex] ?? portfolioCases[0];
+
+  const openDetailModal = (item: PortfolioCase) => {
+    setDetailCase(item);
+    setDetailModalOpen(true);
+  };
+
+  const closeDetailModal = () => {
+    setDetailModalOpen(false);
+  };
 
   const prev = () => setActiveIndex((current) => (current === 0 ? portfolioCases.length - 1 : current - 1));
   const next = () => setActiveIndex((current) => (current === portfolioCases.length - 1 ? 0 : current + 1));
@@ -95,6 +108,16 @@ export default function PortfolioSection() {
                 <article key={item.id} className={activeIndex === index ? "portfolioSlide active" : "portfolioSlide"}>
                   <div onClick={() => setActiveIndex(index)} className="portfolioCard">
                     <div className="portfolioCardInfo">
+                      <button
+                        type="button"
+                        className="portfolioDetailBtn"
+                        onClick={(event) => {
+                          event.stopPropagation();
+                          openDetailModal(item);
+                        }}
+                      >
+                        {t("portfolio.detailBtn")}
+                      </button>
                       <div>
                         <p className="portfolioNumber">{item.number}</p>
                         <p className="portfolioCategory">{item.category}</p>
@@ -151,11 +174,23 @@ export default function PortfolioSection() {
             {activeCase.url ? (
               <a className="portfolioProjectLink" href={activeCase.url} target="_blank" rel="noopener noreferrer">{t("portfolio.viewProject")}</a>
             ) : (
-              <a className="portfolioProjectLink" href="mailto:hello@coderatti.studio">{t("portfolio.requestShoot")}</a>
+              <button type="button" className="portfolioProjectLink" onClick={onOpenModal}>
+                {activeCase.ctaLabel || t("portfolio.requestShoot")}
+              </button>
             )}
           </motion.aside>
         </div>
       </div>
+
+      <PortfolioDetailModal
+        isOpen={detailModalOpen}
+        onClose={closeDetailModal}
+        onContact={() => {
+          closeDetailModal();
+          onOpenModal();
+        }}
+        case={detailCase}
+      />
     </section>
   );
 }
@@ -168,7 +203,7 @@ function ProjectVisual({ item, active }: { item: PortfolioCase; active: boolean 
       <div className="portfolioVisualOverlay" />
       <div className="portfolioVisualCaption">
         <div>
-          <p>{t("portfolio.preview")}</p>
+          {item.url && <p>{t("portfolio.preview")}</p>}
           <p>{item.category}</p>
         </div>
         {item.url ? (

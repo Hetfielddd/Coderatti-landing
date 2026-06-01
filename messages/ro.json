@@ -16,11 +16,12 @@
     "intro": "Proiecte Coderatti Studio: site-uri și conținut vizual pentru afaceri.",
     "caseDescription": "Descrierea proiectului",
     "viewProject": "vezi proiectul",
-    "requestShoot": "solicită o ședință similară",
+    "requestShoot": "solicită serviciul dat",
     "preview": "previzualizare",
     "open": "deschide",
     "view": "vezi",
     "scope": "Scopuri",
+    "detailBtn": "Detalii",
     "cases": [
       {
         "id": "amore-sushi",
@@ -75,7 +76,7 @@
   "prices": {
     "title": "Lista de prețuri",
     "contact": "Contact",
-    "targetAudience": "Cui se adresează:",
+    "targetAudience": "Cui se potrivește:",
     "items": [
       {
         "title": "Landing",
@@ -86,19 +87,21 @@
       {
         "title": "Magazin online",
         "description": "Magazin online este un site web unde oamenii pot vizualiza produsele, afla prețurile și plasa o comandă prin internet.",
-        "audience": ["Restaurante și cafenele", "Magazine de îmbrăcăminte / electronice", "Produse artizanale", "Livrare de mâncare", "Orice afacere care se ocupă cu vânzarea online de produse"],
+        "audience": ["Restaurante și cafenele", "Magazine de îmbrăcăminte / electronice", "Lucrări de mână", "Livrare food", "Orice afacere care se ocupă cu vânzarea online de produse"],
         "price": "De la 300€"
       },
       {
         "title": "Design digital",
-        "description": "Designul digital înseamnă crearea de elemente vizuale pentru internet și rețele sociale.",
+        "description": "Designul digital - crearea de elemente vizuale pentru internet și rețele sociale.",
+        "audienceLabel": "Pentru ce se potrivește:",
         "audience": ["Meniuri pentru restaurante și cafenele", "Proiectare de site-uri web", "Catalog de produse/servicii", "Proiectare de postări publicitare"],
         "price": "De la 100€"
       },
       {
         "title": "Fotografierea obiectelor",
         "description": "Fotografia de produs este o sesiune foto profesională a produselor destinată publicității, meniurilor, site-urilor web, rețelelor sociale și platformelor de vânzare online. Aceasta ajută la prezentarea produsului într-un mod atractiv și la atragerea atenției clienților.",
-        "audience": ["Restaurante și cafenele", "Magazine de îmbrăcăminte / electrocasnice", "Produse artizanale"],
+        "audienceLabel": "Unde se potrivește:",
+        "audience": ["Restaurante și cafenele", "Magazine de îmbrăcăminte / electrocasnice", "Lucrări de mână"],
         "price": "15€ / ora"
       }
     ]
@@ -114,6 +117,10 @@
     "address": "Adresa poștală sau numărul",
     "message": "Mesaj",
     "optional": "*La alegere",
+    "photoAlt": "Echipa Coderatti Studio",
+    "messagePlaceholder": "Mesajul tău...",
+    "success": "Cerere trimisă! Vă contactăm.",
+    "error": "Eroare la trimitere. Încercați mai târziu.",
     "submit": "Contact"
   },
   "modal": {

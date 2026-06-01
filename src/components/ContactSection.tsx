@@ -7,20 +7,38 @@ import { useState, type FormEvent } from "react";
 import "./ContactSection.css";
 
 export default function ContactSection() {
-  const { t } = useI18n();
+  const { t, locale } = useI18n();
   const [formData, setFormData] = useState({
     name: "",
     contact: "",
     message: "",
+    agreed: false,
   });
 
-  const handleSubmit = (event: FormEvent) => {
+  const handleSubmit = async (event: FormEvent) => {
     event.preventDefault();
-    const subject = encodeURIComponent(`Cerere nouă de la ${formData.name}`);
-    const body = encodeURIComponent(
-      `Nume: ${formData.name}\nContact: ${formData.contact}\n\nMesaj:\n${formData.message}`
-    );
-    window.location.href = `mailto:hello@coderatti.studio?subject=${subject}&body=${body}`;
+    if (!formData.agreed) return;
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: formData.name,
+          contact: formData.contact,
+          message: formData.message,
+        }),
+      });
+
+      if (response.ok) {
+        alert(t("contacts.success") || "Заявка отправлена! Мы свяжемся с вами.");
+        setFormData({ name: "", contact: "", message: "", agreed: false });
+      } else {
+        alert(t("contacts.error") || "Ошибка при отправке. Попробуйте позже.");
+      }
+    } catch {
+      alert(t("contacts.error") || "Ошибка при отправке. Попробуйте позже.");
+    }
   };
 
   return (
@@ -30,12 +48,12 @@ export default function ContactSection() {
           className="contactPhoto"
           initial={{ opacity: 0, x: -60 }}
           whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
+          viewport={{ once: true, margin: "-40px" }}
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
         >
           <Image
             src="/contact-photo.jpg"
-            alt="Echipa Coderatti Studio"
+            alt={t("contacts.photoAlt")}
             fill
             sizes="(max-width: 900px) 100vw, 50vw"
             className="contactPhotoImg"
@@ -48,7 +66,7 @@ export default function ContactSection() {
             className="contactHeader"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
+            viewport={{ once: true, margin: "-40px" }}
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           >
             <h2>{t("contacts.title")}</h2>
@@ -59,7 +77,7 @@ export default function ContactSection() {
             className="contactSocials"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
+            viewport={{ once: true, margin: "-40px" }}
             transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
           >
             <p className="contactLabel">{t("contacts.socials")}</p>
@@ -88,7 +106,7 @@ export default function ContactSection() {
             onSubmit={handleSubmit}
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
+            viewport={{ once: true, margin: "-40px" }}
             transition={{ duration: 0.6, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
           >
             <p className="contactLabel">{t("contacts.sendRequest")}</p>
@@ -97,7 +115,7 @@ export default function ContactSection() {
               className="contactField"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-80px" }}
+              viewport={{ once: true, margin: "-40px" }}
               transition={{ duration: 0.5, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
             >
               <label className="contactFieldLabel" htmlFor="contact-name">{t("contacts.name")}</label>
@@ -114,7 +132,7 @@ export default function ContactSection() {
               className="contactField"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-80px" }}
+              viewport={{ once: true, margin: "-40px" }}
               transition={{ duration: 0.5, delay: 0.28, ease: [0.22, 1, 0.36, 1] }}
             >
               <label className="contactFieldLabel" htmlFor="contact-info">{t("contacts.address")}</label>
@@ -131,33 +149,49 @@ export default function ContactSection() {
               className="contactField contactFieldArea"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-80px" }}
+              viewport={{ once: true, margin: "-40px" }}
               transition={{ duration: 0.5, delay: 0.36, ease: [0.22, 1, 0.36, 1] }}
             >
+              <label className="contactFieldLabel" htmlFor="contact-message">
+                {t("contacts.message")}{" "}
+                <span style={{ opacity: 0.55, fontWeight: 400 }}>{t("contacts.optional")}</span>
+              </label>
               <textarea
-                placeholder={t("contacts.message")}
+                id="contact-message"
+                placeholder={t("contacts.messagePlaceholder") || t("contacts.message")}
                 value={formData.message}
                 onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                 rows={4}
               />
             </motion.div>
 
-            <motion.p
-              className="contactOptional"
+            <motion.label
+              className="contactCheckbox"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-80px" }}
+              viewport={{ once: true, margin: "-40px" }}
               transition={{ duration: 0.5, delay: 0.42, ease: [0.22, 1, 0.36, 1] }}
             >
-              {t("contacts.optional")}
-            </motion.p>
+              <input
+                type="checkbox"
+                checked={formData.agreed}
+                onChange={(e) => setFormData({ ...formData, agreed: e.target.checked })}
+                required
+              />
+              <span>
+                {t("modal.privacy")}{" "}
+                <a href={`/privacy?lang=${locale}`} target="_blank" rel="noopener noreferrer">
+                  {t("modal.privacyLink")}
+                </a>
+              </span>
+            </motion.label>
 
             <motion.button
               type="submit"
               className="contactSubmit"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-80px" }}
+              viewport={{ once: true, margin: "-40px" }}
               transition={{ duration: 0.5, delay: 0.48, ease: [0.22, 1, 0.36, 1] }}
             >
               {t("contacts.submit")}

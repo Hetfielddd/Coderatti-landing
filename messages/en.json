@@ -114,6 +114,10 @@
     "address": "Email address or phone number",
     "message": "Message",
     "optional": "*Optional",
+    "photoAlt": "Coderatti Studio Team",
+    "messagePlaceholder": "Your message...",
+    "success": "Request sent! We will contact you.",
+    "error": "Error sending. Please try again later.",
     "submit": "Contact"
   },
   "modal": {
