@@ -53,10 +53,21 @@ export default function PriceListSection() {
 
   return (
     <section className="priceSection" id="prices">
-      <div className="priceGlow priceGlowGreen" />
-      <div className="priceGlow priceGlowWhite" />
-      <div className="priceDecor priceDecorLeft" />
-      <div className="priceDecor priceDecorRight" />
+      <div className="priceGlowWrap priceGlowWrapGreen">
+        <div className="priceGlow priceGlowGreen" />
+      </div>
+      <div className="priceGlowWrap priceGlowWrapWhite">
+        <div className="priceGlow priceGlowWhite" />
+      </div>
+      <div className="priceDecorWrap priceDecorWrapLeft">
+        <img src="/pricelist/image 51.png" className="priceDecor priceDecorLeft" alt="" />
+      </div>
+      <div className="priceDecorWrap priceDecorWrapRight">
+        <img src="/pricelist/image 51-1.png" className="priceDecor priceDecorRight" alt="" />
+      </div>
+      <div className="priceDecorWrap priceDecorWrapCenter">
+        <img src="/pricelist/image 55.png" className="priceDecor priceDecorCenter" alt="" />
+      </div>
 
       <div className="priceContainer">
         <motion.h2

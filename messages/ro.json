@@ -49,6 +49,7 @@
       },
       {
         "id": "food-photo",
+        "noLink": true,
         "number": "03",
         "category": "Fotografie comercială",
         "title": "Amore Sushi Photo",
@@ -60,6 +61,7 @@
       },
       {
         "id": "digital-design",
+        "noLink": true,
         "number": "04",
         "category": "design digital",
         "title": "Design digital",

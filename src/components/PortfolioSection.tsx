@@ -22,6 +22,7 @@ type PortfolioCase = {
   tags: string[];
   scope: string[];
   ctaLabel?: string;
+  noLink?: boolean;
 };
 
 export default function PortfolioSection({ onOpenModal }: { onOpenModal: () => void }) {
@@ -208,9 +209,9 @@ function ProjectVisual({ item, active }: { item: PortfolioCase; active: boolean 
         </div>
         {item.url ? (
           <a href={item.url} target="_blank" rel="noreferrer" onClick={(event) => event.stopPropagation()}>{t("portfolio.open")}</a>
-        ) : (
+        ) : !item.noLink ? (
           <span>{t("portfolio.view")}</span>
-        )}
+        ) : null}
       </div>
     </div>
   );
