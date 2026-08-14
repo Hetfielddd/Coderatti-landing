@@ -83,7 +83,7 @@ export default function ContactSection() {
             <p className="contactLabel">{t("contacts.socials")}</p>
             <div className="contactSocialButtons">
               <a
-                href="https://t.me/coderatti"
+                href="https://t.me/Hetfield"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="contactSocialBtn"
